@@ -105,3 +105,62 @@ z_sup = (500 - mean) / desv_pad
 
 probability = norm.cdf(z_sup) - norm.cdf(z_inf)
 print("{0:.2%}".format(probability))
+
+'''
+O Inmetro verificou que as lâmpadas incandescentes da fabricante XPTO apresentam uma vida útil normalmente distribuída, 
+com média igual a 720 dias e desvio padrão igual a 30 dias. Calcule a probabilidade de uma lâmpada, escolhida ao acaso, durar:
+
+1) Entre 650 e 750 dias
+2) Mais que 800 dias
+3) Menos que 700 dias
+'''
+
+mean = 720
+desv_pad = 30
+
+# Item A
+z_inf = (650 - mean) / desv_pad
+z_sup = (750 - mean) / desv_pad
+
+probability = norm.cdf(z_sup) - norm.cdf(z_inf)
+print("{0:.2%}".format(probability))
+
+# Item B
+Z = (800 - mean) / desv_pad
+
+probability = 1 - norm.cdf(Z)
+print("{0:.2%}".format(probability))
+
+# Item C
+Z = (700 - mean) / desv_pad
+
+probability = norm.cdf(Z)
+print("{0:.2%}".format(probability))
+
+'''
+Utilizando a tabela padronizada, ou o ferramental disponibilizado pelo Python, 
+encontre a área sob a curva normal para os valores de Z abaixo:
+
+1) Z < 1,96
+2) Z > 2,15
+3) Z < -0,78
+4) Z > 0,59
+'''
+
+# Item A
+probability = norm.cdf(1.96)
+print("{0:0.4f}".format(probability))
+
+# Item B
+probability = 1 - norm.cdf(2.15)
+# ou -> probabilidade = norm.sf(2.15)
+print("{0:0.4f}".format(probability))
+
+# Item C
+probability = norm.cdf(-0.78)
+print("{0:0.4f}".format(probability))
+
+# Item D
+probability = 1 - norm.cdf(0.59)
+# ou -> probabilidade = norm.sf(0.59)
+print("{0:0.4f}".format(probability))
